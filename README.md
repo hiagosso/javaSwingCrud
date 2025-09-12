@@ -6,4 +6,5 @@
 Fiz este Programa para evoluir meus conhecimentos em Java
 
 ### Usar
-- para inserir pasta pren
+- para inserir pasta preencher o campo e clicar em Inserir
+- para atualizar ou deletar um Nome, selecione  um nome e depois clique no botão de atualizar ou deletar
