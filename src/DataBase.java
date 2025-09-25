@@ -16,7 +16,7 @@ public class DataBase {
     private String deleteById = "DELETE FROM Usuarios WHERE id = ?";
     private String updateByid = "UPDATE Usuarios SET name = ? WHERE id = ?";
 
-    public void CreaTable() {
+    public void creaTable() {
         try (Connection con = DriverManager.getConnection("jdbc:sqlite:dados.db")) {
             Statement smt = con.createStatement();
             smt.execute(creatTable);
@@ -25,7 +25,7 @@ public class DataBase {
         }
     }
 
-    public List<String[]> ReadTable() {
+    public List<String[]> readTable() {
         List<String[]> dados = new ArrayList<>();
         try (Connection con = DriverManager.getConnection("jdbc:sqlite:dados.db")) {
             Statement smt = con.createStatement();
@@ -41,7 +41,7 @@ public class DataBase {
         return dados;
     }
 
-    public void InsertTable(String name) {
+    public void insertTable(String name) {
         try (Connection con = DriverManager.getConnection("jdbc:sqlite:dados.db")) {
             PreparedStatement psmt = con.prepareStatement(inserTable);
             psmt.setString(1, name);
@@ -52,7 +52,7 @@ public class DataBase {
         }
     }
 
-    public void DeleteById(int id) {
+    public void deleteById(int id) {
         try (Connection con = DriverManager.getConnection("jdbc:sqlite:dados.db")) {
             PreparedStatement psmt = con.prepareStatement(deleteById);
             psmt.setInt(1, id);
@@ -63,7 +63,7 @@ public class DataBase {
         }
     }
 
-    public void UpdateById(int id, String name) {
+    public void updateById(int id, String name) {
         try (Connection con = DriverManager.getConnection("jdbc:sqlite:dados.db")) {
             PreparedStatement psmt = con.prepareStatement(updateByid);
             psmt.setString(1,name);

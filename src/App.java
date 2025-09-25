@@ -10,7 +10,7 @@ public class App {
 
     public static void main(String[] args) {
         DataBase db = new DataBase();
-        db.CreaTable();
+        db.creaTable();
 
         JFrame frame = new JFrame("CRUD");
         frame.setSize(500, 700);
@@ -46,7 +46,7 @@ public class App {
         btnInserir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                db.InsertTable(campoNome.getText());
+                db.insertTable(campoNome.getText());
                 aviso(frame,campoNome.getText() + " Inserido!",1500);
                 campoNome.setText("");
                 carregarUsuarios(model, db);
@@ -60,7 +60,7 @@ public class App {
                 try {
                     String idStr = (String) tabela.getValueAt(tabela.getSelectedRow(), 0);
                     int idSelect = Integer.parseInt(idStr);
-                    db.DeleteById(idSelect);
+                    db.deleteById(idSelect);
                     aviso(frame,"ID " + idSelect + " Deletado!",1500);
                 } catch (RuntimeException ex) {
                     aviso(frame,"Selecione um ID valido!",1500);
@@ -81,7 +81,7 @@ public class App {
                         aviso(frame,"Campo vazio",1500);
                         return;
                     }
-                    db.UpdateById(idSelect,nome);
+                    db.updateById(idSelect,nome);
                     aviso(frame,"ID " + idSelect + " Atualizado!",1500);
                 } catch (RuntimeException ex) {
                     aviso(frame,"Selecione um ID valido!",1500);
@@ -110,7 +110,7 @@ public class App {
 
     public static void carregarUsuarios(DefaultTableModel model, DataBase db) {
         model.setRowCount(0);
-        for (String[] linha : db.ReadTable()) {
+        for (String[] linha : db.readTable()) {
             model.addRow(linha);
         }
     }
